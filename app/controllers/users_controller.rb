@@ -6,7 +6,21 @@ class UsersController < ApplicationController
   end
 
   def new
-    @title = "Sign up"
+   @user = User.new
+   @title = "Sign up"
+  end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+     flash[:success] = "Welcome to the csquared webapp!"
+     redirect_to @user
+    else
+      @title = "Sign up"
+      render 'new'
+    end
   end
 end
+  
 
+  
