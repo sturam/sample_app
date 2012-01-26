@@ -1,8 +1,6 @@
 require 'digest'
 class User < ActiveRecord::Base
-  .
-  .
-  .
+
   before_save :encrypt_password
 
   def has_password?(submitted_password)
