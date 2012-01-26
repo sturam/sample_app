@@ -1,7 +1,8 @@
 require 'digest'
 class User < ActiveRecord::Base
 attr_accessor :password
-  before_save :encrypt_password
+attr_accessor :password_confirmation
+before_save :encrypt_password
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
